@@ -137,47 +137,64 @@
  
 /* Filigrana */ 
  
-.sap_filigrana {position:absolute; 
- 
- top: 50%; 
- left: 43%; 
- 
- width: 1px; 
- height: 1px; 
- 
- transform: 
- translate(-50%, -50%) 
- rotate(-7deg); 
- 
- pointer-events:none; 
- 
- z-index: 1} 
- 
-.sap_filigrana i {display:block; 
- 
- color:transparent; 
- 
- font-size: 21px; 
- line-height: 1} 
- 
-.sap_filigrana i::before {color:transparent; 
- 
- text-shadow: 
- -54px -19px 0 rgba(255, 255, 255, .055), 
- -18px -19px 0 rgba(255, 255, 255, .072), 
- 18px -19px 0 rgba(255, 255, 255, .055), 
- 54px -19px 0 rgba(255, 255, 255, .072), 
- 
- -72px 0 0 rgba(255, 255, 255, .058), 
- -36px 0 0 rgba(255, 255, 255, .078), 
- 0 0 0 rgba(255, 255, 255, .058), 
- 36px 0 0 rgba(255, 255, 255, .078), 
- 72px 0 0 rgba(255, 255, 255, .058), 
- 
- -54px 19px 0 rgba(255, 255, 255, .068), 
- -18px 19px 0 rgba(255, 255, 255, .052), 
- 18px 19px 0 rgba(255, 255, 255, .068), 
- 54px 19px 0 rgba(255, 255, 255, .052)} 
+.sap_filigrana {
+ position:absolute;
+
+ top:50%;
+ left:50%;
+
+ width:1px;
+ height:1px;
+
+ transform:
+ translate(-50%, -50%)
+ rotate(-7deg);
+
+ pointer-events:none;
+
+ z-index:1
+}
+
+.sap_filigrana i {
+ display:block;
+
+ color:transparent;
+
+ font-size:21px;
+ line-height:1
+}
+
+.sap_filigrana i::before {
+ color:transparent;
+
+ text-shadow:
+
+ /* riga superiore */
+ -126px -30px 0 rgba(255,255,255,.055),
+ -84px -30px 0 rgba(255,255,255,.072),
+ -42px -30px 0 rgba(255,255,255,.055),
+ 0 -30px 0 rgba(255,255,255,.072),
+ 42px -30px 0 rgba(255,255,255,.055),
+ 84px -30px 0 rgba(255,255,255,.072),
+ 126px -30px 0 rgba(255,255,255,.055),
+
+ /* riga centrale sfalsata */
+ -105px 0 0 rgba(255,255,255,.058),
+ -63px 0 0 rgba(255,255,255,.078),
+ -21px 0 0 rgba(255,255,255,.058),
+ 21px 0 0 rgba(255,255,255,.078),
+ 63px 0 0 rgba(255,255,255,.058),
+ 105px 0 0 rgba(255,255,255,.078),
+
+ /* riga inferiore */
+ -126px 30px 0 rgba(255,255,255,.068),
+ -84px 30px 0 rgba(255,255,255,.052),
+ -42px 30px 0 rgba(255,255,255,.068),
+ 0 30px 0 rgba(255,255,255,.052),
+ 42px 30px 0 rgba(255,255,255,.068),
+ 84px 30px 0 rgba(255,255,255,.052),
+ 126px 30px 0 rgba(255,255,255,.068)
+}
  
  
 /* Titoli */ 
