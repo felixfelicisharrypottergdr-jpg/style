@@ -324,8 +324,8 @@
  
  color: #FFF6ED; 
  
- font-size: 10px; 
- line-height: 10px; 
+ font-size: 12px; 
+ line-height: 11px; 
  font-weight:bold; 
  
  text-align:left; 
@@ -341,9 +341,9 @@
  align-items:center; 
  justify-content:space-between; 
  
- flex: 0 0 67px; 
+ flex: 0 0 80px; 
  
- width: 67px; 
+ width: 80px; 
  height: 12px} 
  
 .sap_gemma {flex: 0 0 9px; 
