@@ -1,0 +1,1231 @@
+<style>/*========================================================= 
+ sapienze / MAESTRIE / STREGONERIE========================================================= */:root {--arc: #5D2E0A; --arc-d: #281204; --arc-a: #8C501D; 
+ --arc-l: #D28A3B; --arc-p: #F9DDB0; --arc-e: #C99A53; 
+ 
+ --erb: #0C2902; --erb-d: #041200; --erb-a: #326522; 
+ --erb-l: #68A84B; --erb-p: #DDF8C9; --erb-e: #A9A252; 
+ 
+ --med: #87262F; --med-d: #350D12; --med-a: #B8424E; 
+ --med-l: #E15A67; --med-p: #FFD8DB; --med-e: #D2A05D; 
+ 
+ --dif: #5B4A21; --dif-d: #2B230E; --dif-a: #DDC27B; 
+ --dif-l: #E2C36E; --dif-p: #FFF4CE; --dif-e: #E8D49A; 
+ 
+ --div: #293A55; --div-d: #111A29; --div-a: #728BB3; 
+ --div-l: #91AAD2; --div-p: #E7EFFF; --div-e: #B8C7DF; 
+ 
+ --men: #653D56; --men-d: #24151F; --men-a: #875B77; 
+ --men-l: #B87FA0; --men-p: #F9DEEC; --men-e: #C6A4B8} 
+ 
+ 
+/*========================================================= 
+ comuni========================================================= */ 
+ 
+.sap_grid, .sap_grid *, 
+.mae_grid, .mae_grid *, 
+.str_grid, .str_grid * {box-sizing:border-box} 
+ 
+.sap_grid br, .mae_grid br, .str_grid br {display:none !important} 
+ 
+.sap_card, .mae_card, .str_card {position:relative; 
+ margin: 0; 
+ padding: 0} 
+ 
+.sap_nome, .sap_single_nome, 
+.mae_nome, 
+.str_conoscenza, .str_sapienza {font-family:magic; 
+ font-weight:normal; 
+ font-variant:small-caps} 
+ 
+ 
+/*========================================================= 
+ palette condivise========================================================= */ 
+ 
+.sap_arc, .sap_tra, .mae_arc, .mae_tra {--c:var(--arc); --d:var(--arc-d); --a:var(--arc-a); 
+ --l:var(--arc-l); --p:var(--arc-p); --e:var(--arc-e)} 
+ 
+.sap_erb, .sap_mag, .mae_erb, .mae_mag {--c:var(--erb); --d:var(--erb-d); --a:var(--erb-a); 
+ --l:var(--erb-l); --p:var(--erb-p); --e:var(--erb-e)} 
+ 
+.sap_med, .sap_poz, .mae_med, .mae_poz {--c:var(--med); --d:var(--med-d); --a:var(--med-a); 
+ --l:var(--med-l); --p:var(--med-p); --e:var(--med-e)} 
+ 
+.sap_dif, .sap_off, .mae_dif, .mae_off {--c:var(--dif); --d:var(--dif-d); --a:var(--dif-a); 
+ --l:var(--dif-l); --p:var(--dif-p); --e:var(--dif-e)} 
+ 
+.sap_div, .sap_ele, .mae_div, .mae_ele {--c:var(--div); --d:var(--div-d); --a:var(--div-a); 
+ --l:var(--div-l); --p:var(--div-p); --e:var(--div-e)} 
+ 
+.sap_men, .sap_osc, .mae_men, .mae_osc {--c:var(--men); --d:var(--men-d); --a:var(--men-a); 
+ --l:var(--men-l); --p:var(--men-p); --e:var(--men-e)} 
+ 
+ 
+/*========================================================= 
+ sapienze========================================================= */ 
+ 
+.sap_grid {--c: #56171D; 
+ --d: #290A0D; 
+ --a: #A82C34; 
+ --l: #D94750; 
+ --p: #FFD4D4; 
+ --e: #D3A05B; 
+ 
+ display:flex; 
+ flex-flow:row wrap; 
+ align-items:flex-start; 
+ align-content:flex-start; 
+ 
+ gap: 16px; 
+ 
+ width: 100%; 
+ max-width: 100%; 
+ 
+ margin: 0; 
+ padding: 0} 
+ 
+.sap_grid .sap_card {flex: 0 0 220px; 
+ 
+ width: 220px; 
+ min-width: 220px; 
+ max-width: 220px; 
+ 
+ overflow:hidden; 
+ 
+ color: #F8EEE7; 
+ 
+ background: 
+ radial-gradient(circle at 50% -12%, 
+ rgba(255, 255, 255, .09), 
+ transparent 43%), 
+ linear-gradient(180deg, 
+ var(--c), 
+ var(--d)); 
+ 
+ border: 2px solid var(--e); 
+ border-radius: 10px 21px; 
+ 
+ box-shadow: 
+ inset 0 0 0 2px var(--a), 
+ inset 0 0 20px rgba(0, 0, 0, .30), 
+ 0 4px 9px rgba(0, 0, 0, .32); 
+ 
+ counter-reset:saplivello} 
+ 
+ 
+/* Header */ 
+ 
+.sap_head {position:relative; 
+ display:block; 
+ 
+ width: 100%; 
+ height: 50px; 
+ 
+ margin: 0; 
+ padding: 0; 
+ 
+ overflow:hidden; 
+ 
+ border-bottom: 1px solid var(--e); 
+ 
+ background: 
+ linear-gradient(110deg, 
+ rgba(255, 255, 255, .035), 
+ transparent 30%, 
+ rgba(255, 255, 255, .025) 60%, 
+ transparent)} 
+ 
+ 
+/* Filigrana */ 
+ 
+.sap_filigrana {position:absolute; 
+ 
+ top: 50%; 
+ left: 43%; 
+ 
+ width: 1px; 
+ height: 1px; 
+ 
+ transform: 
+ translate(-50%, -50%) 
+ rotate(-7deg); 
+ 
+ pointer-events:none; 
+ 
+ z-index: 1} 
+ 
+.sap_filigrana i {display:block; 
+ 
+ color:transparent; 
+ 
+ font-size: 21px; 
+ line-height: 1} 
+ 
+.sap_filigrana i::before {color:transparent; 
+ 
+ text-shadow: 
+ -54px -19px 0 rgba(255, 255, 255, .055), 
+ -18px -19px 0 rgba(255, 255, 255, .072), 
+ 18px -19px 0 rgba(255, 255, 255, .055), 
+ 54px -19px 0 rgba(255, 255, 255, .072), 
+ 
+ -72px 0 0 rgba(255, 255, 255, .058), 
+ -36px 0 0 rgba(255, 255, 255, .078), 
+ 0 0 0 rgba(255, 255, 255, .058), 
+ 36px 0 0 rgba(255, 255, 255, .078), 
+ 72px 0 0 rgba(255, 255, 255, .058), 
+ 
+ -54px 19px 0 rgba(255, 255, 255, .068), 
+ -18px 19px 0 rgba(255, 255, 255, .052), 
+ 18px 19px 0 rgba(255, 255, 255, .068), 
+ 54px 19px 0 rgba(255, 255, 255, .052)} 
+ 
+ 
+/* Titoli */ 
+ 
+.sap_titoli {position:absolute; 
+ 
+ top: 3px; 
+ right: 48px; 
+ bottom: 3px; 
+ left: 10px; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ z-index: 3} 
+ 
+.sap_kicker {margin: 0; 
+ 
+ color:var(--e); 
+ 
+ font-size: 9px; 
+ line-height: 9px; 
+ font-weight:bold; 
+ 
+ letter-spacing: 1px; 
+ text-transform:uppercase; 
+ 
+ white-space:nowrap} 
+ 
+.sap_nome {margin: 0; 
+ 
+ color: #FFF3DF; 
+ 
+ font-size: 26px; 
+ line-height: 21px; 
+ 
+ white-space:nowrap; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .95), 
+ 0 0 6px rgba(255, 245, 225, .14)} 
+ 
+ 
+/* Totale */ 
+ 
+.sap_totale {position:absolute; 
+ 
+ top: 2px; 
+ right: 2px; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ width: 42px; 
+ height: 42px; 
+ 
+ color: #FFF5E8; 
+ 
+ background: 
+ radial-gradient(circle at 35% 26%, 
+ rgba(255, 255, 255, .14), 
+ transparent 42%), 
+ var(--d); 
+ 
+ border: 1px solid var(--e); 
+ border-radius: 50%; 
+ 
+ box-shadow: 
+ 0 0 0 2px var(--a), 
+ 0 2px 6px rgba(0, 0, 0, .48); 
+ 
+ z-index: 9} 
+ 
+.sap_totale_num {color: #FFF7EB; 
+ 
+ font-size: 18px; 
+ line-height: 16px; 
+ font-weight:bold; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .8)} 
+ 
+.sap_totale_num::before {content:counter(saplivello)} 
+ 
+.sap_totale_max {margin-top: 2px; 
+ 
+ color:var(--e); 
+ 
+ font-size: 9px; 
+ line-height: 8px; 
+ font-weight:bold} 
+ 
+ 
+/* Righe */ 
+ 
+.sap_riga {position:relative; 
+ 
+ display:flex; 
+ align-items:center; 
+ 
+ width: 100%; 
+ height: 32px; 
+ 
+ gap: 7px; 
+ 
+ padding: 4px 9px; 
+ 
+ border-bottom: 
+ 1px solid rgba(255, 235, 215, .17); 
+ 
+ z-index: 2} 
+ 
+.sap_riga:nth-of-type(even) {background: 
+ rgba(255, 255, 255, .018)} 
+ 
+.sap_riga:last-of-type {border-bottom: 0} 
+ 
+.sap_conoscenza {flex: 1 1 auto; 
+ 
+ min-width: 0; 
+ 
+ color: #FFF6ED; 
+ 
+ font-size: 10px; 
+ line-height: 10px; 
+ font-weight:bold; 
+ 
+ text-align:left; 
+ 
+ text-shadow: 
+ 0 1px 1px rgba(0, 0, 0, .72)} 
+ 
+ 
+/* Gemme */ 
+ 
+.sap_gemme {display:flex; 
+ 
+ align-items:center; 
+ justify-content:space-between; 
+ 
+ flex: 0 0 67px; 
+ 
+ width: 67px; 
+ height: 12px} 
+ 
+.sap_gemma {flex: 0 0 9px; 
+ 
+ width: 9px; 
+ height: 9px; 
+ 
+ transform: 
+ rotate(45deg); 
+ 
+ background: 
+ rgba(0, 0, 0, .28); 
+ 
+ border: 
+ 1px solid rgba(220, 190, 150, .40); 
+ 
+ border-radius: 1px; 
+ 
+ box-shadow: 
+ inset 0 0 3px rgba(0, 0, 0, .80)} 
+ 
+.sap_livello_1 .sap_gemma:nth-of-type(-n+1), 
+.sap_livello_2 .sap_gemma:nth-of-type(-n+2), 
+.sap_livello_3 .sap_gemma:nth-of-type(-n+3), 
+.sap_livello_4 .sap_gemma:nth-of-type(-n+4), 
+.sap_livello_5 .sap_gemma:nth-of-type(-n+5) {border-color: 
+ var(--p); 
+ 
+ background: 
+ linear-gradient(135deg, 
+ rgba(255, 255, 255, .96), 
+ rgba(255, 255, 255, .34) 21%, 
+ transparent 23%, 
+ transparent 58%, 
+ rgba(0, 0, 0, .16) 60%), 
+ var(--l); 
+ 
+ box-shadow: 
+ 0 0 3px var(--l), 
+ 0 0 7px var(--l), 
+ inset 0 0 2px rgba(255, 255, 255, .90)} 
+ 
+ 
+/* Contatore */ 
+ 
+.sap_riga.sap_livello_1 {counter-increment:saplivello 1} 
+ 
+.sap_riga.sap_livello_2 {counter-increment:saplivello 2} 
+ 
+.sap_riga.sap_livello_3 {counter-increment:saplivello 3} 
+ 
+.sap_riga.sap_livello_4 {counter-increment:saplivello 4} 
+ 
+.sap_riga.sap_livello_5 {counter-increment:saplivello 5} 
+ 
+ 
+/*========================================================= 
+ sapienze singole========================================================= */ 
+ 
+.sap_single {display:flex; 
+ 
+ align-items:center; 
+ 
+ width: 220px; 
+ min-width: 220px; 
+ max-width: 220px; 
+ 
+ height: 42px; 
+ 
+ padding: 0 10px; 
+ 
+ counter-reset:none} 
+ 
+.sap_single_nome {position:relative; 
+ 
+ display:flex; 
+ 
+ align-items:center; 
+ 
+ flex: 1 1 auto; 
+ 
+ min-width: 0; 
+ height: 100%; 
+ 
+ padding: 0 8px; 
+ 
+ color: #FFF3DF; 
+ 
+ font-size: 22px; 
+ line-height: 20px; 
+ 
+ white-space:nowrap; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .85)} 
+ 
+.sap_single_nome::after {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 8px; 
+ right: 0; 
+ bottom: 8px; 
+ 
+ width: 1px; 
+ 
+ background: 
+ rgba(255, 235, 215, .20)} 
+ 
+.sap_single .sap_gemme {flex-basis: 73px; 
+ 
+ width: 73px; 
+ 
+ margin-left: 9px} 
+ 
+ 
+/* Sociale */ 
+ 
+.sap_soc {--c: #541537; 
+ --d: #27091D; 
+ --a: #8F285E; 
+ 
+ --l: #BD4D91; 
+ --p: #FFD5ED; 
+ --e: #D3A05B} 
+ 
+.sap_soc .sap_gemma {width: 10px; 
+ height: 10px; 
+ 
+ flex-basis: 10px; 
+ 
+ transform:none; 
+ 
+ border-radius: 50%} 
+ 
+ 
+/* Fisica */ 
+ 
+.sap_fis {--c: #5A4511; 
+ --d: #282006; 
+ --a: #AD8420; 
+ 
+ --l: #D9A72A; 
+ --p: #FFF0A7; 
+ --e: #E0B653} 
+ 
+.sap_fis .sap_gemma {width: 11px; 
+ height: 12px; 
+ 
+ flex-basis: 11px; 
+ 
+ transform:none; 
+ 
+ border: 0; 
+ 
+ clip-path: 
+ polygon(50% 0%, 
+ 94% 18%, 
+ 88% 66%, 
+ 50% 100%, 
+ 12% 66%, 
+ 6% 18%)} 
+ 
+ 
+/*========================================================= 
+ maestrie========================================================= */ 
+ 
+.mae_grid {--gold-l: #FCE9A6; 
+ --gold: #E4B94D; 
+ --gold-m: #C89024; 
+ --gold-d: #7B5616; 
+ 
+ --c:var(--med); 
+ --d:var(--med-d); 
+ --l:var(--med-l); 
+ --p:var(--med-p); 
+ 
+ display:flex; 
+ flex-flow:row wrap; 
+ 
+ align-items:flex-start; 
+ align-content:flex-start; 
+ 
+ gap: 26px 20px; 
+ 
+ width: 100%; 
+ 
+ margin: 0; 
+ padding: 12px 8px 10px; 
+ 
+ overflow:visible} 
+ 
+.mae_card {flex: 0 0 220px; 
+ 
+ width: 220px; 
+ min-width: 220px; 
+ max-width: 220px; 
+ 
+ overflow:visible; 
+ 
+ color: #FFF4E7; 
+ 
+ border: 
+ 2px solid var(--gold-l); 
+ 
+ border-radius: 18px; 
+ 
+ background: 
+ radial-gradient(circle at 42% -8%, 
+ rgba(255, 255, 255, .09), 
+ transparent 40%), 
+ linear-gradient(115deg, 
+ rgba(255, 255, 255, .03), 
+ transparent 27%, 
+ rgba(255, 226, 155, .02) 58%, 
+ transparent 80%), 
+ linear-gradient(180deg, 
+ var(--c), 
+ var(--d)); 
+ 
+ box-shadow: 
+ 0 0 0 1px var(--gold-d), 
+ inset 0 0 0 1px rgba(228, 185, 77, .88), 
+ inset 0 1px 0 rgba(255, 247, 220, .14), 
+ inset 0 0 18px rgba(0, 0, 0, .30), 
+ 0 0 8px rgba(228, 185, 77, .18), 
+ 0 4px 8px rgba(0, 0, 0, .38)} 
+ 
+ 
+/* Header */ 
+ 
+.mae_head {position:relative; 
+ 
+ width: 100%; 
+ height: 58px; 
+ 
+ border-bottom: 
+ 1px solid rgba(252, 233, 166, .42); 
+ 
+ background: 
+ radial-gradient(ellipse at 46% 5%, 
+ rgba(255, 240, 195, .055), 
+ transparent 46%)} 
+ 
+.mae_head::before {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 7px; 
+ left: 61px; 
+ right: 12px; 
+ 
+ height: 11px; 
+ 
+ background: 
+ linear-gradient(180deg, 
+ rgba(255, 255, 255, .075), 
+ transparent); 
+ 
+ opacity:.18} 
+ 
+.mae_head::after {content:""; 
+ 
+ position:absolute; 
+ 
+ left: 63px; 
+ right: 10px; 
+ bottom: 6px; 
+ 
+ height: 1px; 
+ 
+ background: 
+ linear-gradient(90deg, 
+ var(--gold-m), 
+ var(--gold-l) 36%, 
+ rgba(252, 233, 166, .20) 76%, 
+ transparent)} 
+ 
+ 
+/* Sigillo */ 
+ 
+.mae_logo_wrap {position:absolute; 
+ 
+ top: -10px; 
+ left: 7px; 
+ 
+ width: 55px; 
+ height: 55px; 
+ 
+ z-index: 9} 
+ 
+.mae_logo {display:flex; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ width: 55px; 
+ height: 55px; 
+ 
+ border: 
+ 2px solid var(--gold-l); 
+ 
+ border-radius: 50%; 
+ 
+ background: 
+ radial-gradient(circle at 32% 25%, 
+ rgba(255, 255, 255, .20), 
+ transparent 37%), 
+ linear-gradient(145deg, 
+ rgba(255, 255, 255, .05), 
+ rgba(0, 0, 0, .28)), 
+ linear-gradient(180deg, 
+ var(--c), 
+ var(--d)); 
+ 
+ box-shadow: 
+ 0 0 0 1px var(--gold-d), 
+ inset 0 0 0 1px rgba(228, 185, 77, .78), 
+ inset 0 0 10px rgba(0, 0, 0, .26), 
+ 0 0 8px rgba(228, 185, 77, .24), 
+ 0 4px 8px rgba(0, 0, 0, .42)} 
+ 
+.mae_logo i {color: 
+ var(--gold-l); 
+ 
+ font-size: 23px; 
+ line-height: 1; 
+ 
+ text-shadow: 
+ 0 0 2px #FFF, 
+ 0 0 6px rgba(252, 233, 166, .42)} 
+ 
+ 
+/* Titolo */ 
+ 
+.mae_titoli {position:absolute; 
+ 
+ top: 6px; 
+ left: 68px; 
+ right: 8px; 
+ bottom: 6px; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ align-items:flex-start; 
+ justify-content:center; 
+ 
+ gap: 5px} 
+ 
+.mae_kicker {color: 
+ var(--gold-l); 
+ 
+ font-size: 9px; 
+ line-height: 9px; 
+ font-weight:bold; 
+ 
+ letter-spacing: 1px; 
+ text-transform:uppercase; 
+ 
+ white-space:nowrap} 
+ 
+.mae_nome {color: #FFF5DF; 
+ 
+ font-size: 26px; 
+ line-height: 21px; 
+ 
+ white-space:nowrap; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .95)} 
+ 
+ 
+/* Righe */ 
+ 
+.mae_riga {display:flex; 
+ 
+ align-items:center; 
+ justify-content:space-between; 
+ 
+ width: 100%; 
+ height: 33px; 
+ 
+ gap: 8px; 
+ 
+ padding: 5px 12px; 
+ 
+ border-bottom: 
+ 1px solid rgba(228, 185, 77, .16)} 
+ 
+.mae_riga:last-of-type {border-bottom: 0} 
+ 
+.mae_conoscenza {flex: 1 1 auto; 
+ 
+ min-width: 0; 
+ 
+ color: #FFF4E8; 
+ 
+ font-size: 12px; 
+ line-height: 12px; 
+ font-weight:bold; 
+ 
+ text-shadow: 
+ 0 1px 1px rgba(0, 0, 0, .72)} 
+ 
+ 
+/* Livelli */ 
+ 
+.mae_lv {flex: 0 0 76px; 
+ 
+ display:flex; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ width: 76px; 
+ height: 22px; 
+ 
+ gap: 5px} 
+ 
+.mae_sig {position:relative; 
+ 
+ flex: 0 0 19px; 
+ 
+ width: 19px; 
+ height: 19px; 
+ 
+ border-radius: 50%; 
+ 
+ background: 
+ radial-gradient(circle, 
+ var(--l), 
+ rgba(255, 255, 255, .18) 18%, 
+ transparent 66%)} 
+ 
+.mae_sig::before {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 4px; 
+ left: 4px; 
+ 
+ width: 11px; 
+ height: 11px; 
+ 
+ background: 
+ radial-gradient(circle at 34% 32%, 
+ #FFF, 
+ rgba(255, 255, 255, .98) 15%, 
+ rgba(255, 255, 255, .58) 27%, 
+ transparent 32%), 
+ linear-gradient(135deg, 
+ var(--p), 
+ var(--l) 48%, 
+ rgba(20, 8, 12, .72)); 
+ 
+ clip-path: 
+ polygon(50% 0, 
+ 62% 38%, 
+ 100% 50%, 
+ 62% 62%, 
+ 50% 100%, 
+ 38% 62%, 
+ 0 50%, 
+ 38% 38%); 
+ 
+ filter: 
+ drop-shadow(0 0 2px #FFF) 
+ drop-shadow(0 0 3px var(--p)) 
+ drop-shadow(0 0 7px var(--l))} 
+ 
+.mae_sig::after {content:""; 
+ 
+ position:absolute; 
+ 
+ inset: 1px; 
+ 
+ border-radius: 50%; 
+ 
+ background: 
+ radial-gradient(circle, 
+ rgba(255, 255, 255, .22), 
+ var(--l) 24%, 
+ transparent 69%); 
+ 
+ filter: 
+ blur(3px); 
+ 
+ opacity:.75; 
+ 
+ z-index: -1} 
+ 
+ 
+/* Conoscenza non sbloccata */ 
+ 
+.mae_riga.mae_spento {height: 26px; 
+ 
+ padding-top: 4px; 
+ padding-bottom: 4px; 
+ 
+ background: 
+ rgba(0, 0, 0, .22); 
+ 
+ opacity:.34} 
+ 
+.mae_spento .mae_conoscenza {color: 
+ rgba(245, 235, 225, .48); 
+ 
+ font-size: 10px; 
+ line-height: 10px; 
+ font-weight:normal; 
+ 
+ text-shadow:none} 
+ 
+.mae_spento .mae_lv {visibility:hidden} 
+ 
+ 
+/*========================================================= 
+ stregonerie========================================================= */ 
+ 
+.str_grid {--plat: #FFF; 
+ --plat-d: #686A70; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ gap: 15px; 
+ 
+ width: 100%; 
+ max-width: 460px; 
+ 
+ margin: 0; 
+ padding: 7px 6px 9px} 
+ 
+ 
+/* Card */ 
+ 
+.str_card {--str-left:var(--med); 
+ --str-right:var(--men); 
+ 
+ --str-left-light:var(--med-l); 
+ --str-right-light:var(--men-l); 
+ 
+ display:grid; 
+ 
+ grid-template-columns: 
+ 96px minmax(0, 1fr) 96px; 
+ 
+ align-items:center; 
+ 
+ width: 100%; 
+ height: 96px; 
+ 
+ padding: 0 8px; 
+ 
+ overflow:hidden; 
+ 
+ color: #FFF; 
+ 
+ border: 
+ 2px solid var(--plat); 
+ 
+ border-radius: 18px; 
+ 
+ background: 
+ radial-gradient(circle at 8% 20%, 
+ rgba(255, 255, 255, .055), 
+ transparent 30%), 
+ radial-gradient(circle at 92% 20%, 
+ rgba(255, 255, 255, .055), 
+ transparent 30%), 
+ linear-gradient(90deg, 
+ var(--str-left) 0%, 
+ var(--str-left) 46%, 
+ var(--str-right) 54%, 
+ var(--str-right) 100%); 
+ 
+ box-shadow: 
+ 0 0 0 1px var(--plat-d), 
+ inset 0 0 0 1px rgba(221, 221, 224, .88), 
+ inset 0 0 20px rgba(0, 0, 0, .30), 
+ 0 4px 8px rgba(0, 0, 0, .38)} 
+ 
+.str_card::before {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 0; 
+ left: 14%; 
+ right: 14%; 
+ 
+ height: 14px; 
+ 
+ background: 
+ linear-gradient(180deg, 
+ rgba(255, 255, 255, .08), 
+ transparent); 
+ 
+ opacity:.20} 
+ 
+.str_card::after {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 50%; 
+ left: 27%; 
+ right: 27%; 
+ 
+ height: 1px; 
+ 
+ background: 
+ linear-gradient(90deg, 
+ transparent, 
+ rgba(255, 255, 255, .22), 
+ transparent)} 
+ 
+ 
+/* Lati */ 
+ 
+.str_side {position:relative; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ min-width: 0; 
+ 
+ gap: 4px; 
+ 
+ z-index: 3} 
+ 
+.str_logo {flex: 0 0 56px; 
+ 
+ display:flex; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ width: 56px; 
+ height: 56px; 
+ 
+ border: 
+ 2px solid var(--plat); 
+ 
+ border-radius: 50%; 
+ 
+ box-shadow: 
+ 0 0 0 1px var(--plat-d), 
+ inset 0 0 0 1px rgba(221, 221, 224, .78), 
+ inset 0 0 10px rgba(0, 0, 0, .32), 
+ 0 3px 6px rgba(0, 0, 0, .38)} 
+ 
+.str_side_left .str_logo {background: 
+ radial-gradient(circle at 32% 25%, 
+ rgba(255, 255, 255, .18), 
+ transparent 38%), 
+ linear-gradient(145deg, 
+ rgba(255, 255, 255, .05), 
+ rgba(0, 0, 0, .38)), 
+ var(--str-left)} 
+ 
+.str_side_right .str_logo {background: 
+ radial-gradient(circle at 32% 25%, 
+ rgba(255, 255, 255, .18), 
+ transparent 38%), 
+ linear-gradient(145deg, 
+ rgba(255, 255, 255, .05), 
+ rgba(0, 0, 0, .38)), 
+ var(--str-right)} 
+ 
+.str_logo i {color: 
+ var(--plat); 
+ 
+ font-size: 24px; 
+ 
+ text-shadow: 
+ 0 0 3px rgba(255, 255, 255, .78)} 
+ 
+.str_side_left .str_logo i {filter: 
+ drop-shadow(0 0 4px var(--str-left-light))} 
+ 
+.str_side_right .str_logo i {filter: 
+ drop-shadow(0 0 4px var(--str-right-light))} 
+ 
+.str_sapienza {width: 100%; 
+ 
+ color: #F9F4E9; 
+ 
+ font-size: 11px; 
+ line-height: 10px; 
+ 
+ text-align:center; 
+ 
+ white-space:nowrap; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .90)} 
+ 
+ 
+/* Centro */ 
+ 
+.str_center {position:relative; 
+ 
+ display:flex; 
+ flex-direction:column; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ min-width: 0; 
+ 
+ gap: 4px; 
+ 
+ padding: 3px 2px; 
+ 
+ text-align:center; 
+ 
+ z-index: 4} 
+ 
+.str_kicker {color: 
+ var(--plat); 
+ 
+ font-size: 8px; 
+ line-height: 8px; 
+ font-weight:bold; 
+ 
+ letter-spacing: 2px; 
+ text-transform:uppercase; 
+ 
+ white-space:nowrap} 
+ 
+.str_conoscenza {width: 100%; 
+ 
+ color: #FFF7E9; 
+ 
+ font-size: 20px; 
+ line-height: 18px; 
+ 
+ text-align:center; 
+ 
+ white-space:nowrap; 
+ 
+ text-shadow: 
+ 0 1px 2px rgba(0, 0, 0, .95)} 
+ 
+ 
+/* Livelli */ 
+ 
+.str_lv {display:flex; 
+ 
+ align-items:center; 
+ justify-content:center; 
+ 
+ height: 19px; 
+ 
+ gap: 7px; 
+ 
+ margin-top: 1px} 
+ 
+.str_sig {position:relative; 
+ 
+ flex: 0 0 16px; 
+ 
+ width: 16px; 
+ height: 16px; 
+ 
+ border: 
+ 1px solid rgba(225, 225, 230, .42); 
+ 
+ border-radius: 50%; 
+ 
+ background: 
+ rgba(5, 5, 8, .34); 
+ 
+ box-shadow: 
+ inset 0 0 4px rgba(0, 0, 0, .65); 
+ 
+ opacity:.42} 
+ 
+.str_sig::before {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 4px; 
+ left: 4px; 
+ 
+ width: 6px; 
+ height: 6px; 
+ 
+ border: 
+ 1px solid rgba(225, 225, 230, .62); 
+ 
+ border-radius: 1px; 
+ 
+ transform: 
+ rotate(45deg)} 
+ 
+.str_sig::after {content:""; 
+ 
+ position:absolute; 
+ 
+ top: 7px; 
+ left: 7px; 
+ 
+ width: 2px; 
+ height: 2px; 
+ 
+ border-radius: 50%; 
+ 
+ background: 
+ rgba(245, 245, 250, .65)} 
+ 
+.str_livello_1 .str_sig:nth-of-type(-n+1), 
+.str_livello_2 .str_sig:nth-of-type(-n+2), 
+.str_livello_3 .str_sig:nth-of-type(-n+3) {opacity: 1; 
+ 
+ border-color: 
+ var(--plat); 
+ 
+ background: 
+ radial-gradient(circle, 
+ #FFF, 
+ #E7E7EA 22%, 
+ #A6A7AD 58%, 
+ #55575E); 
+ 
+ box-shadow: 
+ 0 0 2px #FFF, 
+ 0 0 5px rgba(225, 225, 235, .78), 
+ 0 0 9px rgba(200, 200, 215, .44)} 
+ 
+ 
+/*========================================================= 
+ palette stregonerie========================================================= */ 
+ 
+/* Sinistra */ 
+ 
+.str_left_arc, .str_left_tra {--str-left:var(--arc); 
+ --str-left-light:var(--arc-l)} 
+ 
+.str_left_erb, .str_left_mag {--str-left:var(--erb); 
+ --str-left-light:var(--erb-l)} 
+ 
+.str_left_med, .str_left_poz {--str-left:var(--med); 
+ --str-left-light:var(--med-l)} 
+ 
+.str_left_dif, .str_left_off {--str-left:var(--dif); 
+ --str-left-light:var(--dif-l)} 
+ 
+.str_left_div, .str_left_ele {--str-left:var(--div); 
+ --str-left-light:var(--div-l)} 
+ 
+.str_left_men, .str_left_osc {--str-left:var(--men); 
+ --str-left-light:var(--men-l)} 
+ 
+ 
+/* Destra */ 
+ 
+.str_right_arc, .str_right_tra {--str-right:var(--arc); 
+ --str-right-light:var(--arc-l)} 
+ 
+.str_right_erb, .str_right_mag {--str-right:var(--erb); 
+ --str-right-light:var(--erb-l)} 
+ 
+.str_right_med, .str_right_poz {--str-right:var(--med); 
+ --str-right-light:var(--med-l)} 
+ 
+.str_right_dif, .str_right_off {--str-right:var(--dif); 
+ --str-right-light:var(--dif-l)} 
+ 
+.str_right_div, .str_right_ele {--str-right:var(--div); 
+ --str-right-light:var(--div-l)} 
+ 
+.str_right_men, .str_right_osc {--str-right:var(--men); 
+ --str-right-light:var(--men-l)} 
+ 
+ 
+/*========================================================= 
+ responsive========================================================= */ 
+ 
+@media screen and (max-width: 500px) {.sap_grid {flex-direction:column; 
+ flex-wrap:nowrap} 
+ 
+ .str_card {grid-template-columns: 
+ 84px minmax(0, 1fr) 84px; 
+ 
+ height: 92px} 
+ 
+ .str_logo {flex-basis: 48px; 
+ 
+ width: 48px; 
+ height: 48px} 
+ 
+ .str_logo i {font-size: 20px} 
+ 
+ .str_sapienza {font-size: 10px; 
+ line-height: 9px} 
+ 
+ .str_conoscenza {font-size: 18px; 
+ line-height: 16px}}</style>
