@@ -60,454 +60,415 @@
  --l:var(--men-l); --p:var(--men-p); --e:var(--men-e)} 
  
  
-/*========================================================= 
- sapienze========================================================= */ 
- 
-.sap_grid {--c: #56171D; 
- --d: #290A0D; 
- --a: #A82C34; 
- --l: #D94750; 
- --p: #FFD4D4; 
- --e: #D3A05B; 
- 
- display:flex; 
- flex-flow:row wrap; 
- align-items:flex-start; 
- align-content:flex-start; 
- 
- gap: 16px; 
- 
- width: 100%; 
- max-width: 100%; 
- 
- margin: 0; 
- padding: 0} 
- 
-.sap_grid .sap_card {flex: 0 0 220px; 
- 
- width: 220px; 
- min-width: 220px; 
- max-width: 220px; 
- 
- overflow:hidden; 
- 
- color: #F8EEE7; 
- 
- background: 
- radial-gradient(circle at 50% -12%, 
- rgba(255, 255, 255, .09), 
- transparent 43%), 
- linear-gradient(180deg, 
- var(--c), 
- var(--d)); 
- 
- border: 2px solid var(--e); 
- border-radius: 10px 21px; 
- 
- box-shadow: 
- inset 0 0 0 2px var(--a), 
- inset 0 0 20px rgba(0, 0, 0, .30), 
- 0 4px 9px rgba(0, 0, 0, .32); 
- 
- counter-reset:saplivello} 
- 
- 
-/* Header */ 
- 
-.sap_head {position:relative; 
- display:block; 
- 
- width: 100%; 
- height: 50px; 
- 
- margin: 0; 
- padding: 0; 
- 
- overflow:hidden; 
- 
- border-bottom: 1px solid var(--e); 
- 
- background: 
- linear-gradient(110deg, 
- rgba(255, 255, 255, .035), 
- transparent 30%, 
- rgba(255, 255, 255, .025) 60%, 
- transparent)} 
- 
- 
-/* Filigrana */ 
- 
-.sap_filigrana {
- position:absolute;
+/*=========================================================
+ sapienze========================================================= */
 
+.sap_grid {--c: #56171D;
+ --d: #290A0D;
+ --a: #A82C34;
+ --l: #D94750;
+ --p: #FFD4D4;
+ --e: #D3A05B;
+
+ display:grid;
+ grid-template-columns:repeat(auto-fit, 220px);
+ grid-auto-rows:1px;
+ grid-auto-flow:row dense;
+
+ align-items:start;
+ align-content:start;
+ justify-content:start;
+
+ column-gap:16px;
+ row-gap:0;
+
+ width:100%;
+ max-width:100%;
+
+ margin:0;
+ padding:0}
+
+.sap_grid .sap_card {width:220px;
+ min-width:220px;
+ max-width:220px;
+
+ grid-row-end:span 230;
+
+ overflow:hidden;
+
+ color:#F8EEE7;
+
+ background:
+ radial-gradient(circle at 50% -12%,
+ rgba(255,255,255,.09),
+ transparent 43%),
+ linear-gradient(180deg,
+ var(--c),
+ var(--d));
+
+ border:2px solid var(--e);
+ border-radius:10px 21px;
+
+ box-shadow:
+ inset 0 0 0 1px var(--a),
+ 0 2px 5px rgba(0,0,0,.30);
+
+ filter:none;
+ counter-reset:saplivello}
+
+
+/* Header */
+
+.sap_head {position:relative;
+ display:block;
+
+ width:100%;
+ height:50px;
+
+ margin:0;
+ padding:0;
+
+ overflow:hidden;
+
+ border-bottom:1px solid var(--e);
+
+ background:
+ linear-gradient(110deg,
+ rgba(255,255,255,.035),
+ transparent 30%,
+ rgba(255,255,255,.025) 60%,
+ transparent)}
+
+
+/* Filigrana alleggerita */
+
+.sap_filigrana {position:absolute;
  top:50%;
  left:50%;
 
  width:1px;
  height:1px;
 
- transform:
- translate(-50%, -50%)
- rotate(-7deg);
+ transform:translate(-50%,-50%) rotate(-7deg);
 
  pointer-events:none;
+ z-index:1}
 
- z-index:1
-}
-
-.sap_filigrana i {
- display:block;
-
+.sap_filigrana i {display:block;
  color:transparent;
-
  font-size:21px;
- line-height:1
-}
+ line-height:1;
+ filter:none}
 
-.sap_filigrana i::before {
- color:transparent;
-
+.sap_filigrana i::before {color:transparent;
  text-shadow:
+ -84px -27px 0 rgba(255,255,255,.055),
+ -42px -27px 0 rgba(255,255,255,.072),
+ 0 -27px 0 rgba(255,255,255,.055),
+ 42px -27px 0 rgba(255,255,255,.072),
+ 84px -27px 0 rgba(255,255,255,.055),
+ -63px 8px 0 rgba(255,255,255,.060),
+ -21px 8px 0 rgba(255,255,255,.078),
+ 21px 8px 0 rgba(255,255,255,.060),
+ 63px 8px 0 rgba(255,255,255,.078)}
 
- /* riga superiore */
- -126px -30px 0 rgba(255,255,255,.055),
- -84px -30px 0 rgba(255,255,255,.072),
- -42px -30px 0 rgba(255,255,255,.055),
- 0 -30px 0 rgba(255,255,255,.072),
- 42px -30px 0 rgba(255,255,255,.055),
- 84px -30px 0 rgba(255,255,255,.072),
- 126px -30px 0 rgba(255,255,255,.055),
 
- /* riga centrale sfalsata */
- -105px 0 0 rgba(255,255,255,.058),
- -63px 0 0 rgba(255,255,255,.078),
- -21px 0 0 rgba(255,255,255,.058),
- 21px 0 0 rgba(255,255,255,.078),
- 63px 0 0 rgba(255,255,255,.058),
- 105px 0 0 rgba(255,255,255,.078),
+/* Titoli */
 
- /* riga inferiore */
- -126px 30px 0 rgba(255,255,255,.068),
- -84px 30px 0 rgba(255,255,255,.052),
- -42px 30px 0 rgba(255,255,255,.068),
- 0 30px 0 rgba(255,255,255,.052),
- 42px 30px 0 rgba(255,255,255,.068),
- 84px 30px 0 rgba(255,255,255,.052),
- 126px 30px 0 rgba(255,255,255,.068)
-}
- 
- 
-/* Titoli */ 
- 
-.sap_titoli {position:absolute; 
- 
- top: 3px; 
- right: 48px; 
- bottom: 3px; 
- left: 10px; 
- 
- display:flex; 
- flex-direction:column; 
- 
- align-items:center; 
- justify-content:center; 
- 
- z-index: 3} 
- 
-.sap_kicker {margin: 0; 
- 
- color:var(--e); 
- 
- font-size: 9px; 
- line-height: 9px; 
- font-weight:bold; 
- 
- letter-spacing: 1px; 
- text-transform:uppercase; 
- 
- white-space:nowrap} 
- 
-.sap_nome {margin: 0; 
- 
- color: #FFF3DF; 
- 
- font-size: 26px; 
- line-height: 21px; 
- 
- white-space:nowrap; 
- 
- text-shadow: 
- 0 1px 2px rgba(0, 0, 0, .95), 
- 0 0 6px rgba(255, 245, 225, .14)} 
- 
- 
-/* Totale */ 
- 
-.sap_totale {position:absolute; 
- 
- top: 2px; 
- right: 2px; 
- 
- display:flex; 
- flex-direction:column; 
- 
- align-items:center; 
- justify-content:center; 
- 
- width: 42px; 
- height: 42px; 
- 
- color: #FFF5E8; 
- 
- background: 
- radial-gradient(circle at 35% 26%, 
- rgba(255, 255, 255, .14), 
- transparent 42%), 
- var(--d); 
- 
- border: 1px solid var(--e); 
- border-radius: 50%; 
- 
- box-shadow: 
- 0 0 0 2px var(--a), 
- 0 2px 6px rgba(0, 0, 0, .48); 
- 
- z-index: 9} 
- 
-.sap_totale_num {color: #FFF7EB; 
- 
- font-size: 18px; 
- line-height: 16px; 
- font-weight:bold; 
- 
- text-shadow: 
- 0 1px 2px rgba(0, 0, 0, .8)} 
- 
-.sap_totale_num::before {content:counter(saplivello)} 
- 
-.sap_totale_max {margin-top: 2px; 
- 
- color:var(--e); 
- 
- font-size: 9px; 
- line-height: 8px; 
- font-weight:bold} 
- 
- 
-/* Righe */ 
- 
-.sap_riga {position:relative; 
- 
- display:flex; 
- align-items:center; 
- 
- width: 100%; 
- height: 32px; 
- 
- gap: 7px; 
- 
- padding: 4px 9px; 
- 
- border-bottom: 
- 1px solid rgba(255, 235, 215, .17); 
- 
- z-index: 2} 
- 
-.sap_riga:nth-of-type(even) {background: 
- rgba(255, 255, 255, .018)} 
- 
-.sap_riga:last-of-type {border-bottom: 0} 
- 
-.sap_conoscenza {flex: 1 1 auto; 
- 
- min-width: 0; 
- 
- color: #FFF6ED; 
- 
- font-size: 12px; 
- line-height: 11px; 
- font-weight:bold; 
- 
- text-align:right; 
- 
- text-shadow: 
- 0 1px 1px rgba(0, 0, 0, .72)} 
- 
- 
-/* Gemme */ 
- 
-.sap_gemme {display:flex; 
- 
- align-items:center; 
- justify-content:space-between; 
- 
- flex: 0 0 80px; 
- 
- width: 80px; 
- height: 12px} 
- 
-.sap_gemma {flex: 0 0 9px; 
- 
- width: 9px; 
- height: 9px; 
- 
- transform: 
- rotate(45deg); 
- 
- background: 
- rgba(0, 0, 0, .28); 
- 
- border: 
- 1px solid rgba(220, 190, 150, .40); 
- 
- border-radius: 1px; 
- 
- box-shadow: 
- inset 0 0 3px rgba(0, 0, 0, .80)} 
- 
-.sap_livello_1 .sap_gemma:nth-of-type(-n+1), 
-.sap_livello_2 .sap_gemma:nth-of-type(-n+2), 
-.sap_livello_3 .sap_gemma:nth-of-type(-n+3), 
-.sap_livello_4 .sap_gemma:nth-of-type(-n+4), 
-.sap_livello_5 .sap_gemma:nth-of-type(-n+5) {border-color: 
- var(--p); 
- 
- background: 
- linear-gradient(135deg, 
- rgba(255, 255, 255, .96), 
- rgba(255, 255, 255, .34) 21%, 
- transparent 23%, 
- transparent 58%, 
- rgba(0, 0, 0, .16) 60%), 
- var(--l); 
- 
- box-shadow: 
- 0 0 3px var(--l), 
- 0 0 7px var(--l), 
- inset 0 0 2px rgba(255, 255, 255, .90)} 
- 
- 
-/* Contatore */ 
- 
-.sap_riga.sap_livello_1 {counter-increment:saplivello 1} 
- 
-.sap_riga.sap_livello_2 {counter-increment:saplivello 2} 
- 
-.sap_riga.sap_livello_3 {counter-increment:saplivello 3} 
- 
-.sap_riga.sap_livello_4 {counter-increment:saplivello 4} 
- 
-.sap_riga.sap_livello_5 {counter-increment:saplivello 5} 
- 
- 
-/*========================================================= 
- sapienze singole========================================================= */ 
- 
-.sap_single {display:flex; 
- 
- align-items:center; 
- 
- width: 220px; 
- min-width: 220px; 
- max-width: 220px; 
- 
- height: 42px; 
- 
- padding: 0 10px; 
- 
- counter-reset:none} 
- 
-.sap_single_nome {position:relative; 
- 
- display:flex; 
- 
- align-items:center; 
- 
- flex: 1 1 auto; 
- 
- min-width: 0; 
- height: 100%; 
- 
- padding: 0 8px; 
- 
- color: #FFF3DF; 
- 
- font-size: 22px; 
- line-height: 20px; 
- 
- white-space:nowrap; 
- 
- text-shadow: 
- 0 1px 2px rgba(0, 0, 0, .85)} 
- 
-.sap_single_nome::after {content:""; 
- 
- position:absolute; 
- 
- top: 8px; 
- right: 0; 
- bottom: 8px; 
- 
- width: 1px; 
- 
- background: 
- rgba(255, 235, 215, .20)} 
- 
-.sap_single .sap_gemme {flex-basis: 73px; 
- 
- width: 73px; 
- 
- margin-left: 9px} 
- 
- 
-/* Sociale */ 
- 
-.sap_soc {--c: #541537; 
- --d: #27091D; 
- --a: #8F285E; 
- 
- --l: #BD4D91; 
- --p: #FFD5ED; 
- --e: #D3A05B} 
- 
-.sap_soc .sap_gemma {width: 10px; 
- height: 10px; 
- 
- flex-basis: 10px; 
- 
- transform:none; 
- 
- border-radius: 50%} 
- 
- 
-/* Fisica */ 
- 
-.sap_fis {--c: #5A4511; 
- --d: #282006; 
- --a: #AD8420; 
- 
- --l: #D9A72A; 
- --p: #FFF0A7; 
- --e: #E0B653} 
- 
-.sap_fis .sap_gemma {width: 11px; 
- height: 12px; 
- 
- flex-basis: 11px; 
- 
- transform:none; 
- 
- border: 0; 
- 
- clip-path: 
- polygon(50% 0%, 
- 94% 18%, 
- 88% 66%, 
- 50% 100%, 
- 12% 66%, 
- 6% 18%)} 
- 
- 
+.sap_titoli {position:absolute;
+ top:3px;
+ right:48px;
+ bottom:3px;
+ left:10px;
+
+ display:flex;
+ flex-direction:column;
+
+ align-items:center;
+ justify-content:center;
+
+ z-index:3}
+
+.sap_kicker {margin:0;
+ color:var(--e);
+
+ font-size:9px;
+ line-height:9px;
+ font-weight:bold;
+
+ letter-spacing:1px;
+ text-transform:uppercase;
+ white-space:nowrap;
+
+ text-shadow:none}
+
+.sap_nome {margin:0;
+ color:#FFF3DF;
+
+ font-size:26px;
+ line-height:21px;
+
+ white-space:nowrap;
+
+ text-shadow:0 1px 1px rgba(0,0,0,.75)}
+
+
+/* Totale */
+
+.sap_totale {position:absolute;
+ top:2px;
+ right:2px;
+
+ display:flex;
+ flex-direction:column;
+
+ align-items:center;
+ justify-content:center;
+
+ width:42px;
+ height:42px;
+
+ color:#FFF5E8;
+
+ background:
+ radial-gradient(circle at 35% 26%,
+ rgba(255,255,255,.14),
+ transparent 42%),
+ var(--d);
+
+ border:1px solid var(--e);
+ border-radius:50%;
+
+ box-shadow:
+ 0 0 0 1px var(--a),
+ 0 1px 3px rgba(0,0,0,.36);
+
+ filter:none;
+ z-index:9}
+
+.sap_totale_num {color:#FFF7EB;
+ font-size:18px;
+ line-height:16px;
+ font-weight:bold;
+ text-shadow:0 1px 1px rgba(0,0,0,.68)}
+
+.sap_totale_num::before {content:counter(saplivello)}
+
+.sap_totale_max {margin-top:2px;
+ color:var(--e);
+ font-size:9px;
+ line-height:8px;
+ font-weight:bold;
+ text-shadow:0 1px 1px rgba(0,0,0,.68)}
+
+
+/* Righe */
+
+.sap_riga {position:relative;
+ display:flex;
+ align-items:center;
+
+ width:100%;
+ height:32px;
+
+ gap:7px;
+ padding:4px 9px;
+
+ border-bottom:1px solid rgba(255,235,215,.17);
+
+ box-shadow:none;
+ filter:none;
+ z-index:2}
+
+.sap_riga:nth-of-type(even) {background:rgba(255,255,255,.018)}
+
+.sap_riga:last-of-type {border-bottom:0}
+
+.sap_conoscenza {flex:1 1 auto;
+ min-width:0;
+
+ color:#FFF6ED;
+
+ font-size:12px;
+ line-height:11px;
+ font-weight:bold;
+ text-align:right;
+
+ text-shadow:none}
+
+
+/* Gemme */
+
+.sap_gemme {display:flex;
+ align-items:center;
+ justify-content:space-between;
+
+ flex:0 0 80px;
+ width:80px;
+ height:12px}
+
+.sap_gemma {flex:0 0 9px;
+ width:9px;
+ height:9px;
+
+ transform:rotate(45deg);
+
+ background:rgba(0,0,0,.28);
+
+ border:1px solid rgba(220,190,150,.40);
+ border-radius:1px;
+
+ box-shadow:none;
+ filter:none}
+
+.sap_livello_1 .sap_gemma:nth-of-type(-n+1),
+.sap_livello_2 .sap_gemma:nth-of-type(-n+2),
+.sap_livello_3 .sap_gemma:nth-of-type(-n+3),
+.sap_livello_4 .sap_gemma:nth-of-type(-n+4),
+.sap_livello_5 .sap_gemma:nth-of-type(-n+5) {border-color:var(--p);
+ background:
+ linear-gradient(135deg,
+ rgba(255,255,255,.96),
+ rgba(255,255,255,.34) 21%,
+ transparent 23%,
+ transparent 58%,
+ rgba(0,0,0,.16) 60%),
+ var(--l);
+
+ box-shadow:0 0 3px var(--l)}
+
+
+/* Contatore */
+
+.sap_riga.sap_livello_1 {counter-increment:saplivello 1}
+.sap_riga.sap_livello_2 {counter-increment:saplivello 2}
+.sap_riga.sap_livello_3 {counter-increment:saplivello 3}
+.sap_riga.sap_livello_4 {counter-increment:saplivello 4}
+.sap_riga.sap_livello_5 {counter-increment:saplivello 5}
+
+
+/*=========================================================
+ sapienze singole========================================================= */
+
+.sap_single {display:flex;
+ align-items:center;
+
+ width:220px;
+ min-width:220px;
+ max-width:220px;
+ height:42px;
+
+ grid-row-end:span 58 !important;
+
+ padding:0 10px;
+ counter-reset:none}
+
+.sap_single_nome {position:relative;
+ display:flex;
+ align-items:center;
+
+ flex:1 1 auto;
+ min-width:0;
+ height:100%;
+
+ padding:0 8px;
+
+ color:#FFF3DF;
+
+ font-size:22px;
+ line-height:20px;
+ white-space:nowrap;
+
+ text-shadow:0 1px 1px rgba(0,0,0,.75)}
+
+.sap_single_nome::after {content:"";
+ position:absolute;
+ top:8px;
+ right:0;
+ bottom:8px;
+ width:1px;
+ background:rgba(255,235,215,.20)}
+
+.sap_single .sap_gemme {flex-basis:73px;
+ width:73px;
+ margin-left:9px}
+
+
+/* Sociale */
+
+.sap_soc {--c:#541537;
+ --d:#27091D;
+ --a:#8F285E;
+ --l:#BD4D91;
+ --p:#FFD5ED;
+ --e:#D3A05B}
+
+.sap_soc .sap_gemma {width:10px;
+ height:10px;
+ flex-basis:10px;
+ transform:none;
+ border-radius:50%}
+
+
+/* Fisica */
+
+.sap_fis {--c:#5A4511;
+ --d:#282006;
+ --a:#AD8420;
+ --l:#D9A72A;
+ --p:#FFF0A7;
+ --e:#E0B653}
+
+/* Il parent resta non ritagliato: in questo modo il drop-shadow
+   delle gemme attive può seguire la sagoma senza essere tagliato. */
+.sap_fis .sap_gemma {position:relative;
+ width:11px;
+ height:12px;
+ flex-basis:11px;
+
+ transform:none;
+ background:transparent;
+ border:0;
+ border-radius:0;
+ clip-path:none;
+ box-shadow:none;
+ filter:none}
+
+.sap_fis .sap_gemma::before {content:"";
+ position:absolute;
+ inset:0;
+
+ background:rgba(0,0,0,.28);
+
+ clip-path:polygon(50% 0%,
+ 94% 18%,
+ 88% 66%,
+ 50% 100%,
+ 12% 66%,
+ 6% 18%)}
+
+.sap_fis.sap_livello_1 .sap_gemma:nth-of-type(-n+1),
+.sap_fis.sap_livello_2 .sap_gemma:nth-of-type(-n+2),
+.sap_fis.sap_livello_3 .sap_gemma:nth-of-type(-n+3),
+.sap_fis.sap_livello_4 .sap_gemma:nth-of-type(-n+4),
+.sap_fis.sap_livello_5 .sap_gemma:nth-of-type(-n+5) {background:transparent;
+ border:0;
+ box-shadow:none;
+ filter:drop-shadow(0 0 2px var(--l))}
+
+.sap_fis.sap_livello_1 .sap_gemma:nth-of-type(-n+1)::before,
+.sap_fis.sap_livello_2 .sap_gemma:nth-of-type(-n+2)::before,
+.sap_fis.sap_livello_3 .sap_gemma:nth-of-type(-n+3)::before,
+.sap_fis.sap_livello_4 .sap_gemma:nth-of-type(-n+4)::before,
+.sap_fis.sap_livello_5 .sap_gemma:nth-of-type(-n+5)::before {background:
+ linear-gradient(135deg,
+ rgba(255,255,255,.96),
+ rgba(255,255,255,.34) 21%,
+ transparent 23%,
+ transparent 58%,
+ rgba(0,0,0,.16) 60%),
+ var(--l)}
+
 /*========================================================= 
  maestrie========================================================= */ 
  
@@ -1226,8 +1187,8 @@
 /*========================================================= 
  responsive========================================================= */ 
  
-@media screen and (max-width: 500px) {.sap_grid {flex-direction:column; 
- flex-wrap:nowrap} 
+@media screen and (max-width: 500px) {.sap_grid {grid-template-columns:220px;
+ justify-content:center} 
  
  .str_card {grid-template-columns: 
  84px minmax(0, 1fr) 84px; 
