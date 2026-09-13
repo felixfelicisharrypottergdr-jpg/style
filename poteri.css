@@ -679,7 +679,11 @@
 
 .mae_tra .mae_nome, .mae_mag .mae_nome {
     font-size: 23px;
-} /*Fix Trasfigurazione e Magizoologia*/
+} 
+.mae_mag .mae_nome {
+    letter-spacing: -1px;
+} 
+/*Fix Trasfigurazione e Magizoologia*/
  
  
 /* Righe */ 
